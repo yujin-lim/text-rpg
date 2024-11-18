@@ -1,8 +1,7 @@
 package units;
 
-import java.io.BufferedReader;
+
 import java.io.BufferedWriter;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Random;
 import java.util.Vector;
@@ -11,7 +10,6 @@ public class Guild {
 	
 	private StringBuffer buffer = new StringBuffer();
 	private BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
-	private BufferedReader Reader = new BufferedReader(new InputStreamReader(System.in));
 	private Random ran = new Random();
 	
 	private final int party_Size = 2;
@@ -159,10 +157,56 @@ public class Guild {
 		}
 	}
 
-	public void partyChange() {
-		
-		
+	public void printParty() {
+		buffer.append("=====파티원=====");
+	    for(int i = 0; i < party_Size; i++) {
+	    	buffer.append("[이름  :" + partyList[i].name + "]");
+	    	buffer.append("[체력  :" + partyList[i].hp + "]");
+	    	buffer.append("[마력  :" + partyList[i].mp + "]");
+	    	buffer.append("[공격력  :" + partyList[i].power + "]");
+	    	buffer.append("[방어력  :" + partyList[i].shield + "]");
+	    	buffer.append("[스킬  :" + partyList[i].skill + "]");
+	    	buffer.append("[파티중  :" + partyList[i].skill+ "]");
+	    	buffer.append("=============");
+	    }
+	    buffer.append("=============");
 	}
 	
 	
+	public void partyChange() {
+		printParty();
+		buffer.append("교체당할 파티원을 입력해주세요");
+		
+		String input = buffer.toString();
+		int  value = Integer.parseInt(input);
+		
+		for(int i = 0; i< party_Size; i++) {
+			if(value == i) {
+				partyList[i].party = false;
+			}
+		}
+		
+		buffer.append("교체하고 싶은 파티원을 입력해주세요");
+		input = buffer.toString();
+	    value = Integer.parseInt(input);
+	    
+	    for(int i = 0; i< party_Size; i++) {
+			if(value == i) {
+				partyList[i].party = true;
+			}
+		}
+
+		int n = 0;
+		for (int i = 0; i < guildlist.size(); i++) {
+			if (guildlist.get(i).party == true) {
+				partyList[n] = guildlist.get(i);
+				n += 1;
+			}
+		}
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
 }

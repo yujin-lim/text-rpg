@@ -19,13 +19,14 @@ public class StageLobby extends Stage {
 		String input = buffer.toString();
 
 		if (input.equals("전투")) {
-			TextRPG.getInstance = "BATTLE";
+			 TextRPG.nextStage = "BATTLE";
 		} else if (input.equals("설정")) {
-			TextRPG.getInstance = "SETTING";
+			 TextRPG.nextStage = "SETTING";
 		} else if (input.equals("종료")) {
-			TextRPG.getInstance = "EXIT";
+			TextRPG.nextStage = "EXIT";
 		}
 		return false;
+		
 	}
 
 	@Override

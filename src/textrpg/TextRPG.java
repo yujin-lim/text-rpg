@@ -14,17 +14,16 @@ public class TextRPG {
 	private BufferedWriter writer = new BufferedWriter (new OutputStreamWriter(System.out));
 	private BufferedReader reader = new BufferedReader (new InputStreamReader(System.in));
 	
-	public static String getInstance;
     public static String nextStage = "";
     private Random ran = new Random();
-    private String curStage = "";
+    private static String curStage = "";
     
     private static TextRPG instance = new TextRPG();
     
     private TextRPG() {
     	
     }
-    
+
     public static TextRPG getInstance() {
     	return instance;
     }
@@ -78,12 +77,13 @@ public class TextRPG {
     
     public void setGame() {
     	
-    	
     }
     
     public void play() {
     	
     }
+
+	
     
     
 	

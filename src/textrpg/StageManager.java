@@ -21,8 +21,15 @@ public class StageManager extends Stage {
 		if(input .equals("시작")) {
 		     TextRPG.nextStage = "LOBBY";
 			
-			return false;
+			
 		}
+		return false;
+		
+	}
+
+	@Override
+	public void Init() {
+		// TODO Auto-generated method stub
 		
 	}
 	
