@@ -6,8 +6,6 @@ public class Player extends Unit{
 	static Inventory inventory = new Inventory();
 	static int money = 100000;
 	
-	public Player() {
-	}
 
 	public Player(String name, int hp, int mp, int power, int shield, int skill) {
 		super(name, hp, mp, power, shield, skill);
