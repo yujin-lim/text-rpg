@@ -21,13 +21,13 @@ public class Guild {
 		guildlist.add(new Player("마법사", 250, 200, 150, 100, 3));
 
 		for (int i = 0; i < party_Size; i++) {
-			guildlist.get(i).party = true;
+			guildlist.get(i).setParty(true);
 		}
 		partyList = new Unit[party_Size];
 
 		int n = 0;
 		for (int i = 0; i < guildlist.size(); i++) {
-			if (guildlist.get(i).party == true) {
+			if (guildlist.get(i).isParty() == true) {
 				partyList[n] = guildlist.get(i);
 				n += 1;
 			}
@@ -43,13 +43,13 @@ public class Guild {
 		buffer.append("=============");
 		for(int i = 0; i < guildlist.size(); i ++) {
 			buffer.append("["+ i + "번]");
-			buffer.append("[이름 : "+ guildlist.get(i).name + "]");
-			buffer.append("[체력 : "+ guildlist.get(i).hp + "]");
-			buffer.append("[마력 : "+ guildlist.get(i).mp + "]");		
-			buffer.append("[공격력 : "+ guildlist.get(i).power + "]");
-			buffer.append("[방어력 : "+ guildlist.get(i).shield + "]");
-			buffer.append("[스킬 : "+ guildlist.get(i).skill + "]");
-			buffer.append("[파티중 : "+ guildlist.get(i).party + "]");
+			buffer.append("[이름 : "+ guildlist.get(i).getName()+ "]");
+			buffer.append("[체력 : "+ guildlist.get(i).getHp() + "]");
+			buffer.append("[마력 : "+ guildlist.get(i).getMp() + "]");		
+			buffer.append("[공격력 : "+ guildlist.get(i).getPower() + "]");
+			buffer.append("[방어력 : "+ guildlist.get(i).getShield()+ "]");
+			buffer.append("[스킬 : "+ guildlist.get(i).getSkill() + "]");
+			buffer.append("[파티중 : "+ guildlist.get(i).isParty() + "]");
 			buffer.append("=============");
 		}
 		buffer.append("=============");
@@ -144,7 +144,7 @@ public class Guild {
 		buffer.append("=====길드원=====");
 		for (int i = 0; i < guildlist.size(); i++) {
 			if (value == i) {
-				buffer.append("[이름 : " + guildlist.get(i).name + "]");
+				buffer.append("[이름 : " + guildlist.get(i).getName() + "]");
 			}
 			buffer.append("==길드원을 제거했습니다.==");
 			buffer.append("=============");
@@ -160,13 +160,13 @@ public class Guild {
 	public void printParty() {
 		buffer.append("=====파티원=====");
 	    for(int i = 0; i < party_Size; i++) {
-	    	buffer.append("[이름  :" + partyList[i].name + "]");
-	    	buffer.append("[체력  :" + partyList[i].hp + "]");
-	    	buffer.append("[마력  :" + partyList[i].mp + "]");
-	    	buffer.append("[공격력  :" + partyList[i].power + "]");
-	    	buffer.append("[방어력  :" + partyList[i].shield + "]");
-	    	buffer.append("[스킬  :" + partyList[i].skill + "]");
-	    	buffer.append("[파티중  :" + partyList[i].skill+ "]");
+	    	buffer.append("[이름  :" + partyList[i].getName() + "]");
+	    	buffer.append("[체력  :" + partyList[i].getHp() + "]");
+	    	buffer.append("[마력  :" + partyList[i].getMp() + "]");
+	    	buffer.append("[공격력  :" + partyList[i].getPower() + "]");
+	    	buffer.append("[방어력  :" + partyList[i].getShield() + "]");
+	    	buffer.append("[스킬  :" + partyList[i].getSkill() + "]");
+	    	buffer.append("[파티중  :" + partyList[i].isParty()+ "]");
 	    	buffer.append("=============");
 	    }
 	    buffer.append("=============");
@@ -182,7 +182,7 @@ public class Guild {
 		
 		for(int i = 0; i< party_Size; i++) {
 			if(value == i) {
-				partyList[i].party = false;
+				partyList[i].setParty(false); 
 			}
 		}
 		
@@ -192,13 +192,13 @@ public class Guild {
 	    
 	    for(int i = 0; i< party_Size; i++) {
 			if(value == i) {
-				partyList[i].party = true;
+				partyList[i].setParty(true);
 			}
 		}
 
 		int n = 0;
 		for (int i = 0; i < guildlist.size(); i++) {
-			if (guildlist.get(i).party == true) {
+			if (guildlist.get(i).isParty() == true) {
 				partyList[n] = guildlist.get(i);
 				n += 1;
 			}

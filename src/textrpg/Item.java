@@ -17,5 +17,51 @@ public class Item {
 		pr = price;
 		po = power;
 	}
+
+	public int getKind() {
+		return kind;
+	}
+
+	public void setKind(int kind) {
+		this.kind = kind;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getPower() {
+		return power;
+	}
+
+	public void setPower(int power) {
+		this.power = power;
+	}
+
+	public static int getWeapon() {
+		return WEAPON;
+	}
+
+	public static int getArmor() {
+		return ARMOR;
+	}
+
+	public static int getPotion() {
+		return POTION;
+	}
+	
+	
 	
 }

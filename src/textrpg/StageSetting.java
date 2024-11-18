@@ -1,17 +1,10 @@
 package textrpg;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-
 import units.UnitManager;
 
 public class StageSetting extends Stage {
 
 	private StringBuffer buffer = new StringBuffer();
-	private BufferedWriter writer = new BufferedWriter (new OutputStreamWriter(System.out));
-	private BufferedReader reader = new BufferedReader (new InputStreamReader(System.in));
 	private UnitManager um;
 	private File File;
 	private Shopping Shopping;

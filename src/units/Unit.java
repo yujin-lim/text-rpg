@@ -2,16 +2,21 @@ package units;
 
 abstract public class Unit {
 
-	String name;
-	int hp;
-	int maxhp;
-	int mp;
-	int power;
-	int shield;
-	int skill;
-	boolean party;
+	private String name;
+	private int hp;
+	private int maxhp;
+	private int mp;
+	private int power;
+	private int shield;
+	private int skill;
+	private boolean party;
+	private int WEAPON;
+	private int ARMOR;
+	private int POTION;
+	
+    public Unit (){}
 
-	public Unit(String name, int hp, int maxhp, int mp, int power, int shield, int skill, boolean party) {
+	public Unit(String name, int hp, int maxhp, int mp, int power, int shield, int skill, boolean party,int WEAPON, int ARMOR, int POTION) {
 		super();
 		this.name = name;
 		this.hp = hp;
@@ -21,6 +26,9 @@ abstract public class Unit {
 		this.shield = shield;
 		this.skill = skill;
 		this.party = party;
+		this.WEAPON = WEAPON;
+		this.ARMOR = ARMOR;
+		this.POTION = POTION ;
 	}
 	
 	public Unit(String name, int hp, int mp, int power, int shield, int skill) {
@@ -42,6 +50,13 @@ abstract public class Unit {
 		this.shield = shield;
 		this.skill = skill;
 		this.party = party;
+	}
+	
+	public Unit (int WEAPON, int ARMOR, int POTION) {
+		super();
+		this.WEAPON = WEAPON;
+		this.ARMOR = ARMOR;
+		this.POTION = POTION ;
 	}
 	public String getName() {
 		return name;
@@ -85,13 +100,15 @@ abstract public class Unit {
 	public void setSkill(int skill) {
 		this.skill = skill;
 	}
+
 	public boolean isParty() {
 		return party;
 	}
+
 	public void setParty(boolean party) {
 		this.party = party;
 	}
-	
+
 	public abstract void attack (Unit unit);
 	
 }
