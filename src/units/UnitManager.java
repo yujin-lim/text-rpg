@@ -5,15 +5,15 @@ import java.util.Vector;
 
 public class UnitManager {
 
-	UnitManager instance = new UnitManager();
-	Random ran = new Random();
+	public static UnitManager instance = new UnitManager();
+	private Random ran = new Random();
 	
 	Vector<Player>playerlist = new Vector<Player>();
 	Vector<Monster>monsterlist = new Vector<Monster>();
 	
 	String monsters[] = { "Wolf", "Oak", "Golem"};
 	
-	void init () {
+	public void init () {
 		Player.init();
 	}
  	
@@ -36,6 +36,11 @@ public class UnitManager {
 			}
 			
 		}
+	}
+
+	public void Guild() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
