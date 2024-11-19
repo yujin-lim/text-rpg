@@ -7,6 +7,14 @@ public class Player extends Unit{
 	static int money = 100000;
 	
 
+	public static int getMoney() {
+		return money;
+	}
+
+	public static void setMoney(int money) {
+		Player.money = money;
+	}
+
 	public Player(String name, int hp, int mp, int power, int shield, int skill) {
 		super(name, hp, mp, power, shield, skill);
 	}

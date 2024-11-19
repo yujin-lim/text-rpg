@@ -11,13 +11,20 @@ public class Item {
 	private int price;
 	private int power;
 	
-	public void setItem(int k, String n, int pr, int po) {
-		k = kind;
-		n = name;
-		pr = price;
-		po = power;
+	public Item(int k, String n, int pr, int po) {
+		kind = k;
+		name = n;
+		price = pr;
+		power = po;
 	}
-
+	
+	public void setItem(int k, String n, int pr, int po) {
+		kind = k;
+		name = n;
+		price = pr;
+		power = po;
+	}
+	
 	public int getKind() {
 		return kind;
 	}
