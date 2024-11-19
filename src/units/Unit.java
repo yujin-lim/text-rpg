@@ -1,6 +1,20 @@
 package units;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+
+import textrpg.Item;
+
 abstract public class Unit {
+	ArrayList<Item>itemlist = new ArrayList<>();
+	
+	private StringBuffer buffer = new StringBuffer();
+	private BufferedWriter writer = new BufferedWriter (new OutputStreamWriter(System.out));
+	private BufferedReader reader = new BufferedReader (new InputStreamReader(System.in));
+	
 
 	private String name;
 	private int hp;
@@ -10,13 +24,13 @@ abstract public class Unit {
 	private int shield;
 	private int skill;
 	private boolean party;
-	private int WEAPON;
-	private int ARMOR;
-	private int POTION;
+	private int weapon;
+	private int armor;
+	private int potion;
 	
     public Unit (){}
 
-	public Unit(String name, int hp, int maxhp, int mp, int power, int shield, int skill, boolean party,int WEAPON, int ARMOR, int POTION) {
+	public Unit(String name, int hp, int maxhp, int mp, int power, int shield, int skill, boolean party,int weapon, int armor, int potion) {
 		super();
 		this.name = name;
 		this.hp = hp;
@@ -26,9 +40,9 @@ abstract public class Unit {
 		this.shield = shield;
 		this.skill = skill;
 		this.party = party;
-		this.WEAPON = WEAPON;
-		this.ARMOR = ARMOR;
-		this.POTION = POTION ;
+		this.weapon = weapon;
+		this.armor = armor;
+		this.potion= potion;
 	}
 	
 	public Unit(String name, int hp, int mp, int power, int shield, int skill) {
@@ -52,12 +66,36 @@ abstract public class Unit {
 		this.party = party;
 	}
 	
-	public Unit (int WEAPON, int ARMOR, int POTION) {
+	public Unit (int weapon, int armor, int potion) {
 		super();
-		this.WEAPON = WEAPON;
-		this.ARMOR = ARMOR;
-		this.POTION = POTION ;
+		this.weapon = weapon;
+		this.armor = armor;
+		this.potion= potion;
 	}
+	public int getWeapon() {
+		return weapon;
+	}
+
+	public void setWeapon(int weapon) {
+		this.weapon = weapon;
+	}
+
+	public int getArmor() {
+		return armor;
+	}
+
+	public void setArmor(int armor) {
+		this.armor = armor;
+	}
+
+	public int getPotion() {
+		return potion;
+	}
+
+	public void setPotion(int potion) {
+		this.potion = potion;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -111,4 +149,51 @@ abstract public class Unit {
 
 	public abstract void attack (Unit unit);
 	
+	
+	public void printStatus() {
+		buffer.append("[이름 : " + name + "]");
+		
+		for(int i = 0; i < Player.getItemSize(); i ++) {
+			if(Player.inventory.itemlist.get(getWeapon()) == null) {
+				buffer.append("[무기  :  없음] ");
+			}
+			else {
+				buffer.append("[무기  : " +  Player.inventory.itemlist.get(getWeapon()) + "]");
+				buffer.append("[무기 공격력 증감: " +  Player.inventory.itemlist.get(getWeapon()).getPower() + "]");
+			}
+		}
+		for(int i = 0; i < Player.getItemSize(); i ++) {
+			if(Player.inventory.itemlist.get(getArmor()) == null) {
+				buffer.append("[갑옷  :  없음] ");
+			}
+			else {
+				buffer.append("[갑옷  : " +  Player.inventory.itemlist.get(getArmor()) + "]");
+				buffer.append("[갑옷 공격력 증감: " +  Player.inventory.itemlist.get(getArmor()).getPower() + "]");
+			}
+		}
+		for(int i = 0; i < Player.getItemSize(); i ++) {
+			if(Player.inventory.itemlist.get(getPower()) == null) {
+				buffer.append("[포션  :  없음] ");
+			}
+			else {
+				buffer.append("[포션  : " +  Player.inventory.itemlist.get(getPotion()) + "]");
+				buffer.append("[포션 공격력 증감: " +  Player.inventory.itemlist.get(getPotion()).getPower() + "]");
+			}
+		}
+	}
+	
+	public void attack (Monster target) {
+		target.setHp(target.getHp() -= attack);
+		buffer.append("=====================");
+		buffer.append("[" + name + "]가 [ "+ target.getName()+"에게 " + attack + "데미지를 입힙니다.");
+		if(target.getHp() <= 0) {
+			buffer.append("[" + target.getName() + "]을 처치했습니다.");
+			target.setHp(target.getHp() == 0);
+		}
+	}
+	
+	public void printData() {
+		buffer.append("[" + name + "]/[" + hp + "/ " + maxhp + "]/[" + attack + " ]");
+	}
+
 }

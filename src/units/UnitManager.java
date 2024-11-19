@@ -9,7 +9,7 @@ public class UnitManager {
 	private Random ran = new Random();
 	
 	Vector<Player>playerlist = new Vector<Player>();
-	Vector<Monster>monsterlist = new Vector<Monster>();
+	public Vector<Monster>monsterlist = new Vector<Monster>();
 	
 	String monsters[] = { "Wolf", "Oak", "Golem"};
 	
@@ -17,7 +17,7 @@ public class UnitManager {
 		Player.init();
 	}
  	
-	void random_monster_set(int size) {
+	public void random_monster_set(int size) {
 		for(int i = 0; i < size; i ++) {
 			int ranIdx = ran.nextInt(monsters.length);
 			
