@@ -6,4 +6,9 @@ public abstract class Stage {
 
 	public abstract void Init();
 
+	public static void StageManager() {
+		
+		
+	}
+
 }

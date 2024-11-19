@@ -63,7 +63,7 @@ public class StageBattle  extends Stage {
 	@Override
 	public void Init() {
 	   um.monsterlist.clear();
-	   um.random_monster_set(4);
+	   um.random_monster_set(3);
 	   um.player = null;
 	   um.player = new Player();
 	   monsterlist = null;
@@ -122,14 +122,23 @@ public class StageBattle  extends Stage {
 		    int  selskill = Integer.parseInt(input);
 		    
 		    if(selskill == 1) {
-		    	
+		    	buffer.append("회복중입니다.띠_띠로링_-");
+		    	for(int i = 0; i < Player.getGuildSize(); i ++) {
+		    		if(Player.GetGuildUnit(i)  == pl) {
+		    		pl.setHp(pl.getHp() + 50);
+		    		String message = String.format("[HP :  %d ]" , pl.getHp());
+		    		buffer.append(message);	
+		    		break;
+		    		}
+		    	}
 		    }
 		    else if(selskill == 2) {
+		    	buffer.append("한대씩 때릴께요_-슈슉");
 		    	
 		    	
 		    }
 		}
-	
+	}
 	
 	public void monster_attack(int index) {
 		Monster mon = monsterlist.get(index);

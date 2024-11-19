@@ -4,7 +4,7 @@ public abstract class Monster {
 
 	private StringBuffer buffer = new StringBuffer();
 	
-	private String name;
+	protected String name;
 	private int hp;
 	private int maxhp;
 	private int power;
@@ -26,16 +26,18 @@ public abstract class Monster {
 		this.power = power;
 	}
 	
-	public void attack (Unit unit) {
-		target.hp -= (power = target.damages);
+	public void attack (Unit target) {
+		target.setHp(target.getHp() - target.getPower()); 
 		
 		buffer.append("====================");
-		buffer.append("["+name+"] [" +target.name+ "에게" + (power-target.damages)+ "의 상처를 입힙니다.]");
-		if(target.hp <= 0) {
-			buffer.append("[" + target.name + "을 제거했습니다]");
-			target.hp = 0;
+		buffer.append("["+name+"] [" +target.getName()+ "에게" + target.getPower()+ "의 상처를 입힙니다.]");
+		if(target.getHp() <= 0) {
+			buffer.append("[" + target.getName()+ "을 제거했습니다]");
+			target.setHp(0);
 		}
 	}
+	
+	
 	
 	public void printData() {
 		buffer.append("["+ name +"]/["+ hp +  "/ "  +  maxhp +"]");

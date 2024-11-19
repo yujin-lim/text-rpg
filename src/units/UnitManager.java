@@ -13,6 +13,8 @@ public class UnitManager {
 	
 	String monsters[] = { "Wolf", "Oak", "Golem"};
 	
+	public Player player;
+	
 	public void init () {
 		Player.init();
 	}
@@ -26,10 +28,10 @@ public class UnitManager {
 				
 				Object obj  = clazz;
 				Monster temp = (Monster) obj;
+				String name = null;
 				int hp = ran.nextInt(100)+100;
-				int mp = ran.nextInt(100)+100;
 				int power = ran.nextInt(100)+100;
-				temp.init(hp,mp,power);
+				temp.init(name,hp,power);
 				monsterlist.add(temp);
 			}catch(Exception e) {
 				e.printStackTrace();

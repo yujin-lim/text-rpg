@@ -33,9 +33,8 @@ public class TextRPG {
     private boolean isRun = true;
     
     public void run() {
-    	setGame();
     	while (isRun) {
-    		play();
+    		Stage.StageManager();
     	}
     }
 
@@ -75,13 +74,13 @@ public class TextRPG {
     }
     
     
-    public void setGame() {
-    	
-    }
-    
-    public void play() {
-    	
-    }
+//    public void setGame() {
+//    	nextStage = "TITLE";
+//    }
+//    
+//    public void play() {
+//    	
+//    }
 
 	
     

@@ -182,18 +182,20 @@ abstract public class Unit {
 		}
 	}
 	
-	public void attack (Monster target) {
-		target.setHp(target.getHp() -= attack);
+	public void attack (Monster target ) {
+		target.setHp(target.getHp() - attack());
 		buffer.append("=====================");
-		buffer.append("[" + name + "]가 [ "+ target.getName()+"에게 " + attack + "데미지를 입힙니다.");
+		buffer.append("[" + name + "]가 [ "+ target.getName()+"에게 " + attack() + "데미지를 입힙니다.");
 		if(target.getHp() <= 0) {
 			buffer.append("[" + target.getName() + "]을 처치했습니다.");
-			target.setHp(target.getHp() == 0);
+			target.setHp(0);
 		}
 	}
 	
 	public void printData() {
-		buffer.append("[" + name + "]/[" + hp + "/ " + maxhp + "]/[" + attack + " ]");
+		buffer.append("[" + name + "]/[" + hp + "/ " + maxhp + "]/[" + attack() + " ]");
 	}
+
+	
 
 }

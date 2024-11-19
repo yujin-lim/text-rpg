@@ -28,6 +28,10 @@ public class Player extends Unit{
 		super(name, hp, mp, power, shield, skill, false);
 	}
 
+	public Player() {
+		
+	}
+
 	public static void init() {
 		money = 100000;
 		guild.setGuild();

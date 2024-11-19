@@ -60,7 +60,7 @@ public class Inventory {
 
 			if (itemlist.get(selequip).getKind() == Item.getWeapon()) {
 				if (Player.getGuildUnit(sel).weapon != null) {
-					itemlist.add(Player.getGuildUnit(sel).weapon);
+			        itemlist.add(Player.getGuildUnit(sel).weapon);
 				}
 				Player.getGuildUnit(sel).weapon = itemlist.get(selequip);
 			} else if (itemlist.get(selequip).getKind() == Item.getArmor()) {
